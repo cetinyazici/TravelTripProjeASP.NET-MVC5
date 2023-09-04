@@ -1,0 +1,42 @@
+﻿@model TravelTripProje.Models.Siniflar.BlogYorum
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_Test.cshtml";
+}
+
+<link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+
+<!--/header-->
+<div class="single">
+    <div class="container">
+        <div class="col-md-8 single-main">
+
+            @foreach (var item in Model.Deger1)
+            {
+                <img src="@item.BlogImage" class="img-responsive" alt=" ">
+                <h2>@item.Baslik</h2>
+                <p>@item.Aciklama</p>
+            }
+
+            @foreach (var itemm in Model.Deger2)
+            {
+                <ul class="comment-list">
+                    <li>
+                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                        <div class="desc">
+                            <p>@itemm.KullaniciAdi :  @itemm.Yorum</p>
+                        </div>
+                    </li>
+                </ul>
+            }
+            <br />
+
+            @Html.Action("YorumYap","Blog")
+        </div>
+    </div>
+</div>
+
+
+
+
